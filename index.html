@@ -128,13 +128,15 @@ figcaption strong{color:var(--ink);display:block;font-size:.98rem}
 .copy{font:inherit;font-size:.85rem;font-weight:600;background:none;border:1px solid var(--line);color:var(--ink);border-radius:8px;padding:.35rem .7rem;cursor:pointer}
 .copy:hover{border-color:var(--violet)}
 
-.form-wrap{margin-top:56px}
-.form-card{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:28px;display:flex;flex-direction:column;gap:18px;max-width:760px;margin:0 auto}
-.form-head{display:flex;flex-direction:column;gap:6px}
-.form-head h3{font-family:var(--display);font-weight:400;font-size:1.6rem}
-.form-head p,.form-alt{color:var(--muted);font-size:.95rem}
-.form-card iframe{width:100%;height:1900px;border:0;border-radius:10px;background:#fff;display:block}
-@media (max-width:600px){.form-card{padding:16px}.form-card iframe{height:2300px}}
+.form-dialog{width:min(760px,calc(100vw - 32px));max-height:calc(100dvh - 32px);padding:0;border:1px solid var(--line);border-radius:18px;background:var(--surface);color:var(--ink);overflow:hidden}
+.form-dialog::backdrop{background:rgb(20 12 32 / .55)}
+.form-dialog[open]{display:flex;flex-direction:column}
+.fd-head{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:16px 20px;border-bottom:1px solid var(--line)}
+.fd-head h3{font-family:var(--display);font-weight:400;font-size:1.35rem}
+.fd-close{font:inherit;font-size:1.4rem;line-height:1;width:40px;height:40px;border-radius:50%;border:1px solid var(--line);background:transparent;color:var(--ink);cursor:pointer;flex:none}
+.fd-close:hover{border-color:var(--violet)}
+.form-dialog iframe{flex:1;width:100%;min-height:65dvh;border:0;background:#fff;display:block}
+.fd-foot{padding:10px 20px;border-top:1px solid var(--line);color:var(--muted);font-size:.9rem}
 html{scroll-behavior:smooth}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 footer{border-top:1px solid var(--line);padding-block:36px;color:var(--muted);font-size:.92rem}
@@ -162,7 +164,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px}
         <h1>Breastfeeding counselling, <em>guided by every answer</em> the mother gives.</h1>
         <p class="lede">The Infant Feeding app walks Lady Health Workers through each home visit, from pregnancy to the baby's first birthday. Each answer decides the next question and the advice shown, so every mother gets guidance for her own situation.</p>
         <div class="ctas">
-          <a class="btn btn-primary" href="#request-form">Request access</a>
+          <a class="btn btn-primary js-open-form" href="https://docs.google.com/forms/d/e/1FAIpQLSdBAzXp7ET02dIbIotyz6wWexcLznIlAnj5W1h2a6t-XUw8IQ/viewform" target="_blank" rel="noopener">Request access</a>
           <a class="btn btn-ghost" href="#screens">See the screens</a>
         </div>
         <div class="langs"><span>Works offline</span><span aria-hidden="true">·</span><span>English</span><span aria-hidden="true">·</span><span class="ur" lang="ur">اردو</span></div>
@@ -257,7 +259,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px}
           <li><div><h3>Accept the GitHub invitation</h3><p>GitHub emails you an invitation to the private repository. Accept it within 7 days, then you can view and download the code.</p></div></li>
         </ol>
         <div class="ctas" style="margin-top:32px">
-          <a class="btn btn-primary" href="#request-form">Request access</a>
+          <a class="btn btn-primary js-open-form" href="https://docs.google.com/forms/d/e/1FAIpQLSdBAzXp7ET02dIbIotyz6wWexcLznIlAnj5W1h2a6t-XUw8IQ/viewform" target="_blank" rel="noopener">Request access</a>
         </div>
       </div>
 
@@ -273,19 +275,17 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px}
         <p style="color:var(--muted);font-size:.92rem">Questions? Email <span style="color:var(--ink);font-weight:600;user-select:all">team-email@example.org</span></p>
       </div>
     </div>
-    <div class="wrap form-wrap" id="request-form">
-      <div class="form-card">
-        <div class="form-head">
-          <span class="label">Request form</span>
-          <h3>Request access to the Infant Feeding app</h3>
-          <p>All fields are required. It takes about 3 minutes.</p>
-        </div>
-        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdBAzXp7ET02dIbIotyz6wWexcLznIlAnj5W1h2a6t-XUw8IQ/viewform?embedded=true" title="Infant Feeding App request access form" loading="lazy">Loading the form…</iframe>
-        <p class="form-alt">Trouble with the form? <a href="https://docs.google.com/forms/d/e/1FAIpQLSdBAzXp7ET02dIbIotyz6wWexcLznIlAnj5W1h2a6t-XUw8IQ/viewform" target="_blank" rel="noopener">Open it in a new tab</a>.</p>
-      </div>
-    </div>
   </section>
 </main>
+
+<dialog class="form-dialog" id="form-dialog" aria-labelledby="fd-title">
+  <div class="fd-head">
+    <h3 id="fd-title">Request access</h3>
+    <button class="fd-close" type="button" id="fd-close" aria-label="Close the form">&times;</button>
+  </div>
+  <iframe id="fd-frame" title="Infant Feeding App request access form"></iframe>
+  <p class="fd-foot">Trouble with the form? <a href="https://docs.google.com/forms/d/e/1FAIpQLSdBAzXp7ET02dIbIotyz6wWexcLznIlAnj5W1h2a6t-XUw8IQ/viewform" target="_blank" rel="noopener">Open it in a new tab</a>.</p>
+</dialog>
 
 <footer>
   <div class="wrap">
@@ -302,4 +302,19 @@ document.getElementById('copy-cite').addEventListener('click', function(){
     navigator.clipboard.writeText(t.textContent).then(function(){btn.textContent='Copied';setTimeout(function(){btn.textContent='Copy'},1800)},sel);
   }catch(e){sel()}
 });
+
+(function(){
+  var dlg=document.getElementById('form-dialog'), frame=document.getElementById('fd-frame');
+  var SRC="https://docs.google.com/forms/d/e/1FAIpQLSdBAzXp7ET02dIbIotyz6wWexcLznIlAnj5W1h2a6t-XUw8IQ/viewform?embedded=true";
+  if(!dlg||typeof dlg.showModal!=='function') return; // old browsers: links open the form in a new tab
+  document.querySelectorAll('.js-open-form').forEach(function(a){
+    a.addEventListener('click',function(e){
+      e.preventDefault();
+      if(!frame.getAttribute('src')) frame.setAttribute('src',SRC);
+      dlg.showModal();
+    });
+  });
+  document.getElementById('fd-close').addEventListener('click',function(){dlg.close();});
+  dlg.addEventListener('click',function(e){ if(e.target===dlg) dlg.close(); });
+})();
 </script>
