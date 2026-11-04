@@ -54,7 +54,8 @@ a{color:var(--violet-ink)}
 @media (max-width:640px){.top nav{display:none}}
 
 /* hero */
-.hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:56px;padding-block:72px 64px;align-items:center}
+.hero .wrap{display:block;padding-block:72px 64px}
+.hero-copy{max-width:52rem}
 .hero-copy{display:flex;flex-direction:column;gap:22px;min-width:0}
 .hero-copy .lede{font-size:1.15rem;color:var(--muted);max-width:34em}
 .hero-copy h1 em{font-style:italic;color:var(--violet-ink)}
@@ -97,6 +98,12 @@ section + section{border-top:1px solid var(--line)}
 .features{display:grid;grid-template-columns:repeat(2,1fr);gap:40px 56px}
 .feat{display:flex;flex-direction:column;gap:8px;min-width:0;padding-top:18px;border-top:2px solid var(--ink)}
 .feat p{color:var(--muted)}
+.ref{font-size:.7em;vertical-align:super;line-height:0;margin-left:2px;text-decoration:none;font-weight:700;color:var(--violet-ink)}
+.ref:hover{text-decoration:underline}
+.sources{margin-top:40px;padding-top:20px;border-top:1px solid var(--line);display:flex;flex-direction:column;gap:10px}
+.sources ol{margin:0;padding-left:1.3rem;display:flex;flex-direction:column;gap:6px;color:var(--muted);font-size:.88rem;line-height:1.5}
+.sources li{overflow-wrap:anywhere}
+.sources li:target{color:var(--ink)}
 .partners{margin-top:48px;color:var(--muted);display:flex;flex-wrap:wrap;gap:6px 14px;align-items:baseline}
 .stat{font-family:var(--display);font-size:2.6rem;line-height:1;color:var(--violet-ink);font-variant-numeric:tabular-nums}
 @media (max-width:720px){.features{grid-template-columns:1fr}}
@@ -147,12 +154,6 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px}
 <header class="top">
   <div class="wrap">
     <div class="mark"><i aria-hidden="true"></i>Infant Feeding</div>
-    <nav aria-label="Sections">
-      <a href="#how">How it works</a>
-      <a href="#why">Why it matters</a>
-      <a href="#screens">Screens</a>
-      <a href="#access">Get access</a>
-    </nav>
   </div>
 </header>
 
@@ -162,22 +163,16 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px}
       <div class="hero-copy">
         <span class="label">For Lady Health Workers · Pakistan</span>
         <h1>Breastfeeding counselling, <em>guided by every answer</em> the mother gives.</h1>
-        <p class="lede">The Infant Feeding app walks Lady Health Workers through each home visit, from pregnancy to the baby's first birthday. Each answer decides the next question and the advice shown, so every mother gets guidance for her own situation.</p>
+        <p class="lede">The Infant Feeding app walks Lady Health Workers through each home visit, from pregnancy to the baby's first birthday. Each answer the mother gives decides the next question and the advice shown, so every mother gets guidance for her own situation.</p>
         <div class="ctas">
           <a class="btn btn-primary js-open-form" href="https://docs.google.com/forms/d/e/1FAIpQLSdBAzXp7ET02dIbIotyz6wWexcLznIlAnj5W1h2a6t-XUw8IQ/viewform" target="_blank" rel="noopener">Request access</a>
-          <a class="btn btn-ghost" href="#screens">See the screens</a>
+          <a class="btn btn-ghost" href="#how">How it works</a>
+          <a class="btn btn-ghost" href="#why">Why it matters</a>
+          <a class="btn btn-ghost" href="#screens">Screens</a>
         </div>
         <div class="langs"><span>Works offline</span><span aria-hidden="true">·</span><span>English</span><span aria-hidden="true">·</span><span class="ur" lang="ur">اردو</span></div>
       </div>
 
-      <div class="path" aria-label="Example check-up path">
-        <span class="label">One real visit · Maternal &amp; Infant check-up</span>
-        <div class="step"><div class="rail"><span class="dot"></span><span class="line"></span></div><div><p class="q">Any danger signs in the baby?</p><p class="a">No <span class="chip ok">clear</span></p></div></div>
-        <div class="step"><div class="rail"><span class="dot"></span><span class="line"></span></div><div><p class="q">Is the mother breastfeeding?</p><p class="a">No. Breast pain, works outside the home</p></div></div>
-        <div class="step"><div class="rail"><span class="dot"></span><span class="line"></span></div><div><p class="q">Breast &amp; Nipple Pain module: fever?</p><p class="a">No <span class="chip ok">no urgent referral</span></p></div></div>
-        <div class="step"><div class="rail"><span class="dot"></span><span class="line"></span></div><div><p class="q">Warm, red or firm area on the breast?</p><p class="a">Yes <span class="chip warn">likely mastitis</span></p></div></div>
-        <div class="step end"><div class="rail"><span class="dot"></span><span class="line"></span></div><div><p class="q">App shows</p><p class="a">Feed or express often; BHU if no better in 24 hours <span class="chip v">follow-up created</span></p></div></div>
-      </div>
     </div>
   </div>
 
@@ -191,18 +186,18 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px}
       <div class="journey">
         <div>
           <span class="when">During pregnancy</span>
-          <h3>Antenatal check-ups</h3>
-          <p>Scheduled from the expected delivery date. Each visit checks her plans and concerns, reviews the last topic, and ends with counselling on early initiation, colostrum and the risks of prelacteal feeds.</p>
+          <h3>Pregnancy check-ups</h3>
+          <p>Scheduled from the expected delivery date. Each visit checks her plans and concerns, reviews the last topic, and prepares her to breastfeed in the first hour, give the baby her first milk, and avoid giving honey, water or other foods before breast milk.</p>
         </div>
         <div>
           <span class="when">Birth to 12 months</span>
-          <h3>Maternal &amp; Infant check-ups</h3>
-          <p>Screens the baby for danger signs, asks what he was fed this week, checks urine and stool, and opens modules such as Breast &amp; Nipple Pain when the mother raises a problem.</p>
+          <h3>Mother and baby check-ups</h3>
+          <p>Checks the baby for warning signs, asks what he was fed this week, checks that he is passing urine and stool, and gives step-by-step help when the mother has breast pain or another problem.</p>
         </div>
         <div>
           <span class="when">After every visit</span>
           <h3>Follow-ups and next dates</h3>
-          <p>The next check-up is scheduled automatically. Issues such as mastitis or a weight concern become a follow-up with the recommended action and the mother's phone number.</p>
+          <p>The next check-up is scheduled automatically. Problems such as breast pain or a concern about the baby's weight become a follow-up with the advised next step and the mother's phone number.</p>
         </div>
       </div>
     </div>
@@ -213,15 +208,25 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px}
       <div class="head">
         <span class="label">Why it matters</span>
         <h2>Better breastfeeding, from the first hour to age two</h2>
-        <p>The WHO estimates that 820,000 infant deaths a year could be prevented with recommended breastfeeding. In Punjab, most mothers fall short of all three recommendations. Lady Health Workers already visit every mother at home; the app helps them give the right advice at the right time.</p>
+        <p>Breastfeeding as recommended could prevent about 820,000 child deaths worldwide each year.<a class="ref" href="#src-1">1</a> In Punjab, most mothers fall short of the recommendations.<a class="ref" href="#src-2">2</a> Lady Health Workers already visit mothers at home; the app helps them give the right advice at the right time.</p>
       </div>
       <div class="features">
-        <div class="feat"><span class="stat">20%</span><h3>Start within the first hour</h3><p>Only 20% of babies in Punjab are breastfed within an hour of birth. The app makes sure counselling on colostrum, skin-to-skin contact and early feeding happens during pregnancy, before the birth.</p></div>
-        <div class="feat"><span class="stat">48%</span><h3>Breast milk only for six months</h3><p>Only 48% of babies under six months are exclusively breastfed. The app helps LHWs tackle low milk supply, myths about breast milk, and feeding when mothers work or leave the home.</p></div>
-        <div class="feat"><span class="stat">35%</span><h3>Continue to two years</h3><p>Only 35% of children are still breastfed at two. The app guides LHWs through breast and nipple problems, latch and positioning, and reassures mothers who become pregnant again.</p></div>
-        <div class="feat"><span class="stat">331</span><h3>Built with government, tested in a trial</h3><p>Developed with the Punjab Health Department and UNICEF Pakistan, and being evaluated in a randomized trial with 331 LHWs in Gujranwala, Kasur and Sheikhupura.</p></div>
+        <div class="feat"><span class="stat">20%</span><h3>Start within the first hour</h3><p>Only 20% of babies in Punjab are breastfed within an hour of birth.<a class="ref" href="#src-2">2</a> The app moves this advice into pregnancy visits, so mothers are ready even if the health worker is not there at the birth.</p></div>
+        <div class="feat"><span class="stat">48%</span><h3>Breast milk only for six months</h3><p>Only 48% of babies under six months get breast milk alone.<a class="ref" href="#src-2">2</a> The app helps health workers answer worries about having too little milk, common myths, and feeding when the mother works outside the home.</p></div>
+        <div class="feat"><span class="stat">35%</span><h3>Keep going to age two</h3><p>Only 35% of children are still breastfed at two.<a class="ref" href="#src-2">2</a> The app guides health workers through breast pain and feeding difficulties, and reassures mothers who become pregnant again that they can keep breastfeeding.</p></div>
+        <div class="feat"><span class="stat">75%</span><h3>Videos health workers value</h3><p>75% of Lady Health Workers in our pilot rated the breastfeeding videos as the app's most helpful feature.<a class="ref" href="#src-3">3</a> Videos and pictures are in Urdu, and sensitive content carries a warning.</p></div>
       </div>
-      <p class="partners"><span class="label">Research team</span> CERP · NC State University · Duke University · University of Pittsburgh · Aga Khan University · World Bank Pakistan</p>
+      <p class="partners"><span class="label">Research team</span> [Research team and partners to be added]</p>
+      <div class="sources">
+        <span class="label">Sources</span>
+        <ol>
+          <li id="src-1">Victora CG, Bahl R, Barros AJD, et al. Breastfeeding in the 21st century: epidemiology, mechanisms, and lifelong effect. <em>The Lancet</em>. 2016;387(10017):475–490. <a href="https://doi.org/10.1016/S0140-6736(15)01024-7" target="_blank" rel="noopener">doi.org/10.1016/S0140-6736(15)01024-7</a></li>
+          <li id="src-2">Breastfeeding rates for Punjab, Pakistan. [Original survey name and year to be added]</li>
+          <li id="src-3">Infant Feeding project pilot survey of Lady Health Workers, 2024 (n = 52).</li>
+          <li id="src-4">World Health Organization. Breastfeeding: questions and answers. <a href="https://www.who.int/news-room/questions-and-answers/item/breastfeeding" target="_blank" rel="noopener">who.int/news-room/questions-and-answers/item/breastfeeding</a></li>
+          <li id="src-5">Singletary N, Waqar Farooqi Z. Beliefs, experiences, and practices of Lady Health Workers in facilitating breastfeeding in rural communities in Pakistan. <em>Qualitative Health Research</em>. 2024;34(13):1339–1350. <a href="https://doi.org/10.1177/10497323241242640" target="_blank" rel="noopener">doi.org/10.1177/10497323241242640</a></li>
+        </ol>
+      </div>
     </div>
   </section>
 
@@ -236,10 +241,10 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px}
         <figure><div class="phone"><img src="screens/01-home.png" alt="Home screen with visit lists and patient tools" onerror="this.hidden=true"><div class="ph"><b>Home</b><span>screens/01-home.png</span></div></div><figcaption><strong>Home</strong>Upcoming, overdue and follow-up visits, patients and resources.</figcaption></figure>
         <figure><div class="phone"><img src="screens/02-upcoming.png" alt="Upcoming Visits list" onerror="this.hidden=true"><div class="ph"><b>Upcoming Visits</b><span>screens/02-upcoming.png</span></div></div><figcaption><strong>Upcoming Visits</strong>Every check-up due soon, nearest date first.</figcaption></figure>
         <figure><div class="phone"><img src="screens/03-patient.png" alt="Patients list with search bar" onerror="this.hidden=true"><div class="ph"><b>Patients</b><span>screens/03-patient.png</span></div></div><figcaption><strong>Patients</strong>Search by name, phone or household. Icons show pregnancy and children under one.</figcaption></figure>
-        <figure><div class="phone"><img src="screens/04-checkups.png" alt="Antenatal and Maternal and Infant check-up cards" onerror="this.hidden=true"><div class="ph"><b>Check-up cards</b><span>screens/04-checkups.png</span></div></div><figcaption><strong>Two check-ups, one visit</strong>Antenatal for Fatima and Maternal &amp; Infant for Bilal.</figcaption></figure>
+        <figure><div class="phone"><img src="screens/04-checkups.png" alt="Pregnancy and mother and baby check-up cards" onerror="this.hidden=true"><div class="ph"><b>Check-up cards</b><span>screens/04-checkups.png</span></div></div><figcaption><strong>Two check-ups, one visit</strong>One for Fatima's pregnancy and one for her baby, Bilal.</figcaption></figure>
         <figure><div class="phone"><img src="screens/05-advice.png" alt="Advice for the mother's concerns" onerror="this.hidden=true"><div class="ph"><b>Advice</b><span>screens/05-advice.png</span></div></div><figcaption><strong>Advice for her concerns</strong>One dropdown for each concern she raised.</figcaption></figure>
-        <figure><div class="phone"><img src="screens/06-mastitis.png" alt="Breast and Nipple Pain module asking about fever" onerror="this.hidden=true"><div class="ph"><b>Breast &amp; Nipple Pain</b><span>screens/06-mastitis.png</span></div></div><figcaption><strong>Breast &amp; Nipple Pain</strong>Danger signs first: fever means an urgent BHU referral.</figcaption></figure>
-        <figure><div class="phone"><img src="screens/07-followup.png" alt="Follow-up created after the visit" onerror="this.hidden=true"><div class="ph"><b>Follow-up</b><span>screens/07-followup.png</span></div></div><figcaption><strong>Automatic follow-up</strong>Issues, recommended action and the mother's number.</figcaption></figure>
+        <figure><div class="phone"><img src="screens/06-breast-pain.png" alt="Breast pain questions, starting with a check for fever" onerror="this.hidden=true"><div class="ph"><b>Breast pain</b><span>screens/06-breast-pain.png</span></div></div><figcaption><strong>Help with breast pain</strong>Serious warning signs are checked first, with advice on when to visit a health facility.</figcaption></figure>
+        <figure><div class="phone"><img src="screens/07-followup.png" alt="Follow-up created after the visit" onerror="this.hidden=true"><div class="ph"><b>Follow-up</b><span>screens/07-followup.png</span></div></div><figcaption><strong>Automatic follow-up</strong>The problem, the advised next step and the mother's number.</figcaption></figure>
         <figure><div class="phone"><img src="screens/08-resources.png" alt="Educational Resources quiz" onerror="this.hidden=true"><div class="ph"><b>Resources &amp; quiz</b><span>screens/08-resources.png</span></div></div><figcaption><strong>Educational Resources</strong>Advice, video and a quiz for each subtopic.</figcaption></figure>
       </div>
     </div>
@@ -271,7 +276,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px}
           <li><strong style="color:var(--ink)">Cite our work.</strong> Mention our work in any paper, report, presentation or product that uses the app.</li>
         </ul>
         <div class="cite-row"><span class="label">How to cite</span><button class="copy" id="copy-cite" type="button">Copy</button></div>
-        <p class="cite" id="cite-text">Centre for Economic Research in Pakistan (CERP) and North Carolina State University. Infant Feeding (IF) App: guided breastfeeding counselling for Lady Health Workers. Version 1.0, 2026.</p>
+        <p class="cite" id="cite-text">[Citation to be added]</p>
         <p style="color:var(--muted);font-size:.92rem">Questions? Email <span style="color:var(--ink);font-weight:600;user-select:all">team-email@example.org</span></p>
       </div>
     </div>
@@ -289,7 +294,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px}
 
 <footer>
   <div class="wrap">
-    <span>Infant Feeding App · CERP Labs and NC State University</span>
+    <span>Infant Feeding App · [Research team and partners]</span>
     <a href="https://infantfeeding.pk/home" target="_blank" rel="noopener">infantfeeding.pk</a>
   </div>
 </footer>
